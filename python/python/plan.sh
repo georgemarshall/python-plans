@@ -2,11 +2,11 @@ pkg_name=python
 pkg_distname=Python
 pkg_version=3.6.0
 pkg_origin=python
-pkg_maintainer="George Marshall <george@georgemarshall.name>"
 pkg_license=('Python-2.0')
+pkg_maintainer="George Marshall <george@georgemarshall.name>"
 pkg_description="Python is a programming language that lets you work quickly \
-  and integrate systems more effectively."
-pkg_upstream_url="https://www.python.org"
+and integrate systems more effectively."
+pkg_upstream_url=https://www.python.org/
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://www.python.org/ftp/python/${pkg_version}/${pkg_dirname}.tgz
 pkg_shasum=aa472515800d25a3739833f76ca3735d9f4b2fe77c3cb21f69275e0cce30cb2b

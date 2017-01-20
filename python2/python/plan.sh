@@ -1,11 +1,11 @@
-pkg_name=python2
+pkg_name=python
 pkg_distname=Python
 pkg_version=2.7.13
-pkg_origin=python
+pkg_origin=python2
 pkg_license=('Python-2.0')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="Python is a programming language that lets you work quickly
-  and integrate systems more effectively."
+pkg_description="Python is a programming language that lets you work quickly \
+and integrate systems more effectively."
 pkg_upstream_url=https://www.python.org/
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://www.python.org/ftp/python/${pkg_version}/${pkg_dirname}.tgz

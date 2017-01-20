@@ -1,12 +1,11 @@
-source ../plan.sh
+source ../../packages/pip.sh
+source ../default.sh
 
-pkg_name=python2-pip
 pkg_deps=(
-  python/python2
-  python/python2-setuptools
-  python/python2-wheel
+  python2/python
+  python2/setuptools
+  python2/wheel
 )
-pkg_python_dirs=(lib/python2.7/site-packages)
 
 do_install() {
   python setup.py install \
