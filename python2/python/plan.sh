@@ -43,7 +43,8 @@ do_prepare() {
 do_build() {
   ./configure --prefix="$pkg_prefix" \
     --enable-shared \
-    --enable-unicode=ucs4
+    --enable-unicode=ucs4 \
+    --without-ensurepip
   make
 }
 

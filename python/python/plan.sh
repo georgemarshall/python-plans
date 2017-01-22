@@ -33,7 +33,7 @@ pkg_build_deps=(
 pkg_lib_dirs=(lib)
 pkg_bin_dirs=(bin)
 pkg_include_dirs=(include)
-pkg_interpreters=(bin/python bin/python3 bin/python3.5)
+pkg_interpreters=(bin/python bin/python3 bin/python3.6)
 
 do_prepare() {
   sed -i.bak 's/#zlib/zlib/' Modules/Setup.dist
@@ -44,7 +44,8 @@ do_build() {
   export LDFLAGS="$LDFLAGS -lgcc_s"
   ./configure --prefix="$pkg_prefix" \
     --enable-loadable-sqlite-extensions \
-    --enable-shared
+    --enable-shared \
+    --without-ensurepip
   make
 }
 
