@@ -1,0 +1,11 @@
+pkg_name=pytest
+pkg_distname=${pkg_name}
+pkg_version=3.0.6
+pkg_dirname=${pkg_distname}-${pkg_version}
+pkg_source=https://pypi.org/packages/source/p/pytest/${pkg_dirname}.tar.gz
+pkg_shasum=643434a9f1a188271da35e20064cb8b6c5440976c5bb541dc7b5b0e3cf75d940
+pkg_maintainer="George Marshall <george@georgemarshall.name>"
+pkg_description="Simple powerful testing with Python"
+pkg_upstream_url=http://pytest.org/
+pkg_license=('MIT')
+pkg_bin_dirs=(bin)
