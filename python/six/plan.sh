@@ -1,25 +1,20 @@
-pkg_name=setuptools
+pkg_name=six
 pkg_distname=${pkg_name}
-pkg_version=34.3.3
+pkg_version=1.10.0
 pkg_origin=python
 pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="Easily download, build, install, upgrade, and uninstall \
-Python packages"
-pkg_upstream_url=https://github.com/pypa/setuptools
+pkg_description="Python 2 and 3 compatibility utilities"
+pkg_upstream_url=https://github.com/benjaminp/six
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/s/setuptools/${pkg_dirname}.zip
-pkg_shasum=2cd244d3fca6ff7d0794a9186d1d19a48453e9813ae1d783edbfb8c348cde905
+pkg_source=https://pypi.org/packages/source/s/six/${pkg_dirname}.tar.gz
+pkg_shasum=105f8d68616f8248e24bf0e9372ef04d3cc10104f1980f54d57b2ce73a5ad56a
 pkg_deps=(
   python/python
-  python/appdirs
-  python/packaging
-  python/six
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
 )
-pkg_bin_dirs=(bin)
 
 do_begin() {
   add_path_env 'PYTHONPATH' 'lib/python3.6/site-packages'
@@ -31,8 +26,7 @@ do_build() {
 
 do_install() {
   python setup.py install \
-    --prefix="$pkg_prefix" \
-    --old-and-unmanageable # bypass egg install
+    --prefix="$pkg_prefix"
 }
 
 do_strip() {
