@@ -10,3 +10,5 @@ bootstrap it and dependencies first so that we can include it.
 * six
 * packaging
 * setuptools
+* wheel
+* pip
