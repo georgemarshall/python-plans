@@ -1,15 +1,49 @@
-source ../../packages/pycparser.sh
-source ../default.sh
-
+pkg_name=pycparser
+pkg_distname=${pkg_name}
+pkg_version=2.17
+pkg_origin=python2
+pkg_license=('BSD-3-Clause')
+pkg_maintainer="George Marshall <george@georgemarshall.name>"
+pkg_description="C parser in Python"
+pkg_upstream_url=https://github.com/eliben/pycparser
+pkg_dirname=${pkg_distname}-${pkg_version}
+pkg_source=https://pypi.org/packages/source/p/pycparser/${pkg_dirname}.tar.gz
+pkg_shasum=0aac31e917c24cb3357f5a4d5566f2cc91a19ca41862f6c3c22dc60a629673b6
 pkg_deps=(
-  ${pkg_base_deps[@]}
   python2/python
 )
 pkg_build_deps=(
-  ${pkg_base_build_deps[@]}
-  python2/setuptools
+  core/gcc
 )
+pkg_env_sep=(
+  ['PYTHONPATH']=':'
+)
+
+do_begin() {
+  add_path_env 'PYTHONPATH' 'lib/python2.7/site-packages'
+}
+
+do_build() {
+  python setup.py build
+}
 
 do_check() {
   python tests/all_tests.py
+}
+
+do_install() {
+  python setup.py install \
+    --prefix="$pkg_prefix"
+}
+
+do_strip() {
+  do_default_strip
+
+  # Remove tests and bytecode files
+  find "$pkg_prefix" -depth \
+    \( \
+      \( -type d -a -name test -o -name tests \) \
+      -o \
+      \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
+    \) -exec rm -rf '{}' +
 }
