@@ -17,9 +17,9 @@ pkg_deps=(
 )
 pkg_build_deps=(
   core/gcc
-#  python/py
-#  python/pytest
-  python/setuptools
+#  python2/py
+#  python2/pytest
+  python2/setuptools
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
