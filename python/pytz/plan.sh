@@ -15,7 +15,6 @@ pkg_deps=(
 pkg_env_sep=(
   ['PYTHONPATH']=':'
 )
-pkg_bin_dirs=(bin)
 
 do_begin() {
   add_path_env 'PYTHONPATH' 'lib/python3.6/site-packages'

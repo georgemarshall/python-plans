@@ -12,8 +12,6 @@ pkg_shasum=b70696ebd1a5e6b627e7e3ac1365a4bc60aaf3495e843c1e70448966c5224cab
 pkg_deps=(
   python2/python
   python2/py
-)
-pkg_build_deps=(
   python2/setuptools
 )
 pkg_env_sep=(

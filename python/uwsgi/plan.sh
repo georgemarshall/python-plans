@@ -11,10 +11,10 @@ pkg_source=https://pypi.org/packages/source/u/uwsgi/${pkg_dirname}.tar.gz
 pkg_shasum=572ef9696b97595b4f44f6198fe8c06e6f4e6351d930d22e5330b071391272ff
 pkg_deps=(
   python/python
+  python/setuptools
 )
 pkg_build_deps=(
   core/gcc
-  python/setuptools
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'

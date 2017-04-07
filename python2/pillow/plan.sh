@@ -18,11 +18,11 @@ pkg_deps=(
   core/openjpeg
   core/zlib
   python2/python
+  python2/setuptools
 )
 pkg_build_deps=(
   core/gcc
   python2/nose
-  python2/setuptools
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'

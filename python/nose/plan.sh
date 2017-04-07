@@ -11,8 +11,6 @@ pkg_source=https://pypi.org/packages/source/n/nose/${pkg_dirname}.tar.gz
 pkg_shasum=f1bffef9cbc82628f6e7d7b40d7e255aefaa1adb6a1b1d26c69a8b79e6208a98
 pkg_deps=(
   python/python
-)
-pkg_build_deps=(
   python/setuptools
 )
 pkg_env_sep=(

@@ -11,10 +11,10 @@ pkg_source=https://pypi.org/packages/source/c/coverage/${pkg_dirname}.tar.gz
 pkg_shasum=eaaefe0f6aa33de5a65f48dd0040d7fe08cac9ac6c35a56d0a7db109c3e733df
 pkg_deps=(
   python2/python
+  python2/setuptools
 )
 pkg_build_deps=(
   core/gcc
-  python2/setuptools
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
