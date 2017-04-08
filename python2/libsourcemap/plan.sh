@@ -1,6 +1,5 @@
 pkg_name=libsourcemap
 pkg_distname=${pkg_name}
-pkg_origin=wheelhouse
 pkg_version=0.6.0
 pkg_origin=python2
 pkg_license=('BSD')
