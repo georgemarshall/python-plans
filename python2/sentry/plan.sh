@@ -11,6 +11,7 @@ pkg_source=https://pypi.org/packages/source/s/sentry/${pkg_dirname}.tar.gz
 pkg_shasum=f80315439197d2c70ed1e1c191731e1c2c14a80af3d7faf43a0e4ed37d5391f8
 pkg_deps=(
   python2/python
+  python2/cryptography
   python2/libsourcemap
   python2/lxml
   python2/pillow
