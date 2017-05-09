@@ -16,21 +16,22 @@ pkg_deps=(
   python2/python
   python2/asn1crypto
   python2/cffi
+  python2/enum34
   python2/idna
-  python2/packaging
   python2/six
 )
 pkg_build_deps=(
   core/gcc
+  python2/hypothesis
+  python2/iso8601
+  python2/pretend
+  python2/pytest
+  python2/pytz
   python2/setuptools
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
 )
-
-do_begin() {
-  add_path_env 'PYTHONPATH' 'lib/python3.6/site-packages'
-}
 
 do_build() {
   python setup.py build
@@ -41,19 +42,9 @@ do_check() {
 }
 
 do_install() {
+  add_path_env 'PYTHONPATH' "$PYTHON_SITE_PACKAGES"
   python setup.py install \
     --prefix="$pkg_prefix" \
+    --no-compile \
     --old-and-unmanageable # bypass egg install
-}
-
-do_strip() {
-  do_default_strip
-
-  # Remove tests and bytecode files
-  find "$pkg_prefix" -depth \
-    \( \
-      \( -type d -a -name test -o -name tests \) \
-      -o \
-      \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
-    \) -exec rm -rf '{}' +
 }
