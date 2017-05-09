@@ -25,10 +25,6 @@ pkg_env_sep=(
   ['PYTHONPATH']=':'
 )
 
-do_begin() {
-  add_path_env 'PYTHONPATH' 'lib/python2.7/site-packages'
-}
-
 do_prepare() {
   export CC="$(pkg_path_for gcc)/bin/gcc"
   export CXX="$(pkg_path_for gcc)/bin/g++"
@@ -39,19 +35,9 @@ do_build() {
 }
 
 do_install() {
+  add_path_env 'PYTHONPATH' "$PYTHON_SITE_PACKAGES"
   python setup.py install \
     --prefix="$pkg_prefix" \
+    --no-compile \
     --old-and-unmanageable # bypass egg install
-}
-
-do_strip() {
-  do_default_strip
-
-  # Remove tests and bytecode files
-  find "$pkg_prefix" -depth \
-    \( \
-      \( -type d -a -name test -o -name tests \) \
-      -o \
-      \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
-    \) -exec rm -rf '{}' +
 }
