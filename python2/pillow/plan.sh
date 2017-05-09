@@ -1,6 +1,6 @@
 pkg_name=pillow
 pkg_distname=Pillow
-pkg_version=4.1.0
+pkg_version=4.1.1
 pkg_origin=python2
 pkg_license=('Standard PIL License')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
@@ -8,7 +8,7 @@ pkg_description="Python Imaging Library (Fork)"
 pkg_upstream_url=https://python-pillow.org/
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://pypi.org/packages/source/p/pillow/${pkg_dirname}.tar.gz
-pkg_shasum=a0fd487fed4a35717401b7566e51a1520b34e7c0f7f2a315a6509f82bc86299f
+pkg_shasum=00b6a5f28d00f720235a937ebc2f50f4292a5c7e2d6ab9a8b26153b625c4f431
 pkg_deps=(
   core/freetype
   core/lcms2
@@ -29,10 +29,6 @@ pkg_env_sep=(
 )
 pkg_bin_dirs=(bin)
 
-do_begin() {
-  add_path_env 'PYTHONPATH' 'lib/python2.7/site-packages'
-}
-
 do_build() {
   python setup.py build
 }
@@ -42,19 +38,9 @@ do_build() {
 #}
 
 do_install() {
+  add_path_env 'PYTHONPATH' "$PYTHON_SITE_PACKAGES"
   python setup.py install \
     --prefix="$pkg_prefix" \
+    --no-compile \
     --old-and-unmanageable # bypass egg install
-}
-
-do_strip() {
-  do_default_strip
-
-  # Remove tests and bytecode files
-  find "$pkg_prefix" -depth \
-    \( \
-      \( -type d -a -name test -o -name tests \) \
-      -o \
-      \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
-    \) -exec rm -rf '{}' +
 }
