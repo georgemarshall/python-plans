@@ -18,6 +18,7 @@ pkg_deps=(
   python2/cffi
   python2/enum34
   python2/idna
+  python2/ipaddress
   python2/six
 )
 pkg_build_deps=(
