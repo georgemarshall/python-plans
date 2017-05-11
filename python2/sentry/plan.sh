@@ -20,6 +20,8 @@ pkg_deps=(
   python2/psycopg2
   python2/python-u2flib-server40
   python2/qrcode
+  python2/rb
+  python2/redis
   python2/setuptools
   python2/simplejson
   python2/symsynd
