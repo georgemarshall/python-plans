@@ -1,22 +1,29 @@
-pkg_name=qrcode
+pkg_name=urllib3
 pkg_distname=${pkg_name}
-pkg_version=5.3
+pkg_version=1.21.1
 pkg_origin=python2
-pkg_license=('BSD-3-Clause')
+pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="QR Code image generator"
-pkg_upstream_url=https://github.com/lincolnloop/python-qrcode
+pkg_description="HTTP library with thread-safe connection pooling, file post, and more."
+pkg_upstream_url=https://github.com/shazow/urllib3
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/q/qrcode/${pkg_dirname}.tar.gz
-pkg_shasum=4115ccee832620df16b659d4653568331015c718a754855caf5930805d76924e
+pkg_source=https://pypi.org/packages/source/u/urllib3/${pkg_dirname}.tar.gz
+pkg_shasum=b14486978518ca0901a76ba973d7821047409d7f726f22156b24e83fd71382a5
 pkg_deps=(
   python2/python
-  python2/six
 )
 pkg_build_deps=(
   python2/mock
-  python2/pillow
+  python2/nose
+  python2/psutil
   python2/setuptools
+  python2/tornado
+
+  # extra - secure
+  python2/pyopenssl
+
+  #extra - socks
+  python2/pysocks
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
@@ -26,9 +33,9 @@ do_build() {
   python setup.py build
 }
 
-do_check() {
-  python setup.py test --test-suite qrcode.tests
-}
+#do_check() {
+#  nosetests
+#}
 
 do_install() {
   add_path_env 'PYTHONPATH' "$PYTHON_SITE_PACKAGES"

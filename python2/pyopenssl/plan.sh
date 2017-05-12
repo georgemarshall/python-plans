@@ -1,21 +1,21 @@
-pkg_name=qrcode
-pkg_distname=${pkg_name}
-pkg_version=5.3
+pkg_name=pyopenssl
+pkg_distname=pyOpenSSL
+pkg_version=17.0.0
 pkg_origin=python2
-pkg_license=('BSD-3-Clause')
+pkg_license=('Apache-2.0')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="QR Code image generator"
-pkg_upstream_url=https://github.com/lincolnloop/python-qrcode
+pkg_description="Python wrapper module around the OpenSSL library"
+pkg_upstream_url=https://pyopenssl.readthedocs.io/
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/q/qrcode/${pkg_dirname}.tar.gz
-pkg_shasum=4115ccee832620df16b659d4653568331015c718a754855caf5930805d76924e
+pkg_source=https://pypi.org/packages/source/p/pyopenssl/${pkg_dirname}.tar.gz
+pkg_shasum=48abfe9d2bb8eb8d8947c8452b0223b7b1be2383b332f3b4f248fe59ef0bafdd
 pkg_deps=(
   python2/python
+  python2/cryptography
   python2/six
 )
 pkg_build_deps=(
-  python2/mock
-  python2/pillow
+  python2/pytest
   python2/setuptools
 )
 pkg_env_sep=(
@@ -26,9 +26,10 @@ do_build() {
   python setup.py build
 }
 
-do_check() {
-  python setup.py test --test-suite qrcode.tests
-}
+#do_check() {
+#  export PYTHONPATH="$PWD/src:$PYTHONPATH"
+#  pytest
+#}
 
 do_install() {
   add_path_env 'PYTHONPATH' "$PYTHON_SITE_PACKAGES"

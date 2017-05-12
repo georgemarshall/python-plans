@@ -1,22 +1,20 @@
-pkg_name=mock
+pkg_name=ua-parser
 pkg_distname=${pkg_name}
-pkg_version=2.0.0
+pkg_version=0.7.3
 pkg_origin=python2
-pkg_license=('BSD-2-Clause')
+pkg_license=('Apache-2.0')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="Rolling backport of unittest.mock for all Pythons"
-pkg_upstream_url=https://github.com/testing-cabal/mock
+pkg_description="Python port of Browserscope's user agent parser"
+pkg_upstream_url=https://github.com/ua-parser/uap-python
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/m/mock/${pkg_dirname}.tar.gz
-pkg_shasum=b158b6df76edd239b8208d481dc46b6afd45a846b7812ff0ce58971cf5bc8bba
+pkg_source=https://pypi.org/packages/source/u/ua-parser/${pkg_dirname}.tar.gz
+pkg_shasum=0aafb05a67b621eb4d69f6c1c3972f2d9443982bcd9132a8b665d90cd48a1add
 pkg_deps=(
   python2/python
-  python2/pbr
-  python2/funcsigs
 )
 pkg_build_deps=(
+  python2/pyyaml
   python2/setuptools
-  python2/unittest2
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
@@ -26,9 +24,9 @@ do_build() {
   python setup.py build
 }
 
-do_check() {
-  unit2 discover
-}
+#do_check() {
+#  python ua_parser/user_agent_parser_test.py
+#}
 
 do_install() {
   add_path_env 'PYTHONPATH' "$PYTHON_SITE_PACKAGES"

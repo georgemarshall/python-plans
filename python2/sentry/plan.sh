@@ -16,6 +16,7 @@ pkg_deps=(
   python2/ipaddress
   python2/libsourcemap
   python2/lxml
+  python2/mock10
   python2/pillow
   python2/psycopg2
   python2/python-u2flib-server40
@@ -24,7 +25,10 @@ pkg_deps=(
   python2/redis
   python2/setuptools
   python2/simplejson
+  python2/six
   python2/symsynd
+  python2/ua-parser
+  python2/urllib3116
   python2/uwsgi
 )
 #pkg_build_deps=(

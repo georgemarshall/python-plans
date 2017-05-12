@@ -1,22 +1,21 @@
-pkg_name=mock
+pkg_name=exam
 pkg_distname=${pkg_name}
-pkg_version=2.0.0
+pkg_version=0.10.6
 pkg_origin=python2
-pkg_license=('BSD-2-Clause')
+pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="Rolling backport of unittest.mock for all Pythons"
-pkg_upstream_url=https://github.com/testing-cabal/mock
+pkg_description="Helpers for better testing."
+pkg_upstream_url=https://github.com/fluxx/exam
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/m/mock/${pkg_dirname}.tar.gz
-pkg_shasum=b158b6df76edd239b8208d481dc46b6afd45a846b7812ff0ce58971cf5bc8bba
+pkg_source=https://pypi.org/packages/source/e/exam/${pkg_dirname}.tar.gz
+pkg_shasum=0c2da07ebc1c7b292721b0585bd43b282c7bb3287d33805e9934166f73e11789
 pkg_deps=(
   python2/python
-  python2/pbr
-  python2/funcsigs
+  python2/mock
 )
 pkg_build_deps=(
+  python2/nose
   python2/setuptools
-  python2/unittest2
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
@@ -27,7 +26,7 @@ do_build() {
 }
 
 do_check() {
-  unit2 discover
+  python setup.py nosetests
 }
 
 do_install() {
