@@ -12,6 +12,8 @@ pkg_shasum=83e7248889f76473662b55e7b55d667eb9e0e5baf00ea0ebc197bbeb24767676
 pkg_deps=(
   python2/python
 #  python2/cryptography
+  python2/cssutils09
+  python2/django16
   python2/enum34
   python2/ipaddress
   python2/libsourcemap
@@ -23,9 +25,13 @@ pkg_deps=(
   python2/qrcode
   python2/rb
   python2/redis
+  python2/setproctitle
   python2/setuptools
   python2/simplejson
   python2/six
+  python2/south
+  python2/statsd31
+  python2/structlog16
   python2/symsynd
   python2/ua-parser
   python2/urllib3116
