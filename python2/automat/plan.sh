@@ -12,12 +12,12 @@ pkg_shasum=4889ec6763377432ec4db265ad552bbe956768ea3fff39014855308ba79dd7c2
 pkg_deps=(
   python2/python
   python2/attrs
+  python2/setuptools
   python2/six
 )
 pkg_build_deps=(
   python2/m2r
   python2/pytest
-  python2/setuptools
   python2/setuptools-scm
 )
 pkg_env_sep=(

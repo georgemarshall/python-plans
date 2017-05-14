@@ -1,19 +1,21 @@
-pkg_name=unittest2
-pkg_distname=${pkg_name}
-pkg_version=1.1.0
+pkg_name=babel
+pkg_distname=Babel
+pkg_version=2.4.0
 pkg_origin=python2
-pkg_license=('Python-2.0')
+pkg_license=('BSD-3-Clause')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="The new features in unittest backported to Python 2.4+."
-pkg_upstream_url=http://pypi.python.org/pypi/unittest2
+pkg_description="Internationalization utilities"
+pkg_upstream_url=http://babel.pocoo.org/
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/u/unittest2/${pkg_dirname}.tar.gz
-pkg_shasum=22882a0e418c284e1f718a822b3b022944d53d2d908e1690b319a9d3eb2c0579
+pkg_source=https://pypi.org/packages/source/b/babel/${pkg_dirname}.tar.gz
+pkg_shasum=8c98f5e5f8f5f088571f2c6bd88d530e331cbbcb95a7311a0db69d3dca7ec563
 pkg_deps=(
   python2/python
-  python2/argparse
+  python2/pytz
   python2/setuptools
-  python2/traceback2
+)
+pkg_build_deps=(
+  python2/pytest
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
@@ -22,6 +24,10 @@ pkg_bin_dirs=(bin)
 
 do_build() {
   python setup.py build
+}
+
+do_check() {
+  pytest
 }
 
 do_install() {

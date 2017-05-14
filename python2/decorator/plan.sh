@@ -1,27 +1,30 @@
-pkg_name=unittest2
+pkg_name=decorator
 pkg_distname=${pkg_name}
-pkg_version=1.1.0
+pkg_version=4.0.11
 pkg_origin=python2
-pkg_license=('Python-2.0')
+pkg_license=('BSD-2-Clause')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="The new features in unittest backported to Python 2.4+."
-pkg_upstream_url=http://pypi.python.org/pypi/unittest2
+pkg_description="Better living through Python with decorators"
+pkg_upstream_url=https://github.com/micheles/decorator
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/u/unittest2/${pkg_dirname}.tar.gz
-pkg_shasum=22882a0e418c284e1f718a822b3b022944d53d2d908e1690b319a9d3eb2c0579
+pkg_source=https://pypi.org/packages/source/d/decorator/${pkg_dirname}.tar.gz
+pkg_shasum=953d6bf082b100f43229cf547f4f97f97e970f5ad645ee7601d55ff87afdfe76
 pkg_deps=(
   python2/python
-  python2/argparse
+)
+pkg_build_deps=(
   python2/setuptools
-  python2/traceback2
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
 )
-pkg_bin_dirs=(bin)
 
 do_build() {
   python setup.py build
+}
+
+do_check() {
+  python setup.py test
 }
 
 do_install() {

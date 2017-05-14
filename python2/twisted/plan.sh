@@ -14,11 +14,11 @@ pkg_deps=(
   python2/automat
   python2/constantly
   python2/incremental
+  python2/setuptools
   python2/zope-interface
 )
 pkg_build_deps=(
   core/gcc
-  python2/setuptools
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'

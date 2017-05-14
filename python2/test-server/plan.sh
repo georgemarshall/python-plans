@@ -11,14 +11,14 @@ pkg_source=https://pypi.org/packages/source/t/test-server/${pkg_dirname}.tar.gz
 pkg_shasum=b83f7c652ba79319805d4241cf7a05b8bf0e25b1547dcba3d4193c5f35c49293
 pkg_deps=(
   python2/python
-  python2/tornado
-  python2/six
-  python2/psutil
   python2/filelock
+  python2/psutil
+  python2/setuptools
+  python2/six
+  python2/tornado
 )
 pkg_build_deps=(
   python2/pytest
-  python2/setuptools
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'

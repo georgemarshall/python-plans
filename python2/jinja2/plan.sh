@@ -1,24 +1,26 @@
-pkg_name=unittest2
-pkg_distname=${pkg_name}
-pkg_version=1.1.0
+pkg_name=jinja2
+pkg_distname=Jinja2
+pkg_version=2.9.6
 pkg_origin=python2
-pkg_license=('Python-2.0')
+pkg_license=('BSD-3-Clause')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="The new features in unittest backported to Python 2.4+."
-pkg_upstream_url=http://pypi.python.org/pypi/unittest2
+pkg_description="A small but fast and easy to use stand-alone template engine \
+written in pure python."
+pkg_upstream_url=http://jinja.pocoo.org/
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/u/unittest2/${pkg_dirname}.tar.gz
-pkg_shasum=22882a0e418c284e1f718a822b3b022944d53d2d908e1690b319a9d3eb2c0579
+pkg_source=https://pypi.org/packages/source/j/jinja2/${pkg_dirname}.tar.gz
+pkg_shasum=ddaa01a212cd6d641401cb01b605f4a4d9f37bfc93043d7f760ec70fb99ff9ff
 pkg_deps=(
   python2/python
-  python2/argparse
+  python2/babel
+  python2/markupsafe
+)
+pkg_build_deps=(
   python2/setuptools
-  python2/traceback2
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
 )
-pkg_bin_dirs=(bin)
 
 do_build() {
   python setup.py build
