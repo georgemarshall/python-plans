@@ -21,6 +21,7 @@ pkg_deps=(
 )
 pkg_build_deps=(
   core/gcc
+  python/cryptography-vectors
   python/hypothesis
   python/iso8601
   python/pretend
