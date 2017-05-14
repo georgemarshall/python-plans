@@ -1,20 +1,20 @@
-pkg_name=attrs
+pkg_name=pytzdata
 pkg_distname=${pkg_name}
-pkg_version=16.3.0
+pkg_version=2017.2
 pkg_origin=python2
 pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="Attributes Without Boilerplate"
-pkg_upstream_url=https://attrs.readthedocs.io/
+pkg_description="Official timezone database for Python."
+pkg_upstream_url=https://github.com/sdispater/pytzdata
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/a/attrs/${pkg_dirname}.tar.gz
-pkg_shasum=80203177723e36f3bbe15aa8553da6e80d47bfe53647220ccaa9ad7a5e473ccc
+pkg_source=https://pypi.org/packages/source/p/pytzdata/${pkg_dirname}.tar.gz
+pkg_shasum=a4d11b8123d00e947fac88508292b9e148da884fc64b884d9da3897a35fa2ab0
 pkg_deps=(
   python2/python
 )
 pkg_build_deps=(
-  python2/hypothesis
-  python2/pytest
+#  python2/nose
+#  python2/pytest
   python2/setuptools
 )
 pkg_env_sep=(
@@ -25,11 +25,9 @@ do_build() {
   python setup.py build
 }
 
+# Tests not included in source release
 #do_check() {
-#  export PYTHONPATH="$PWD/build/lib:$PYTHONPATH"
-#  pytest
-#  # Remove bytecode files
-#  find . -type f -name '*.py[co]' -delete
+#  python setup.py test
 #}
 
 do_install() {

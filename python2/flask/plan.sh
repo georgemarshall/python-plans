@@ -32,6 +32,9 @@ do_build() {
 do_check() {
   export PYTHONPATH="$PWD/build/lib:$PWD/examples/flaskr:$PWD/examples/minitwit:$PYTHONPATH"
   pytest
+
+  # Remove bytecode files
+  find . -type f -name '*.py[co]' -delete
 }
 
 do_install() {

@@ -1,20 +1,19 @@
-pkg_name=attrs
+pkg_name=pastel
 pkg_distname=${pkg_name}
-pkg_version=16.3.0
+pkg_version=0.1.0
 pkg_origin=python2
 pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="Attributes Without Boilerplate"
-pkg_upstream_url=https://attrs.readthedocs.io/
+pkg_description="Bring colors to your terminal."
+pkg_upstream_url=https://github.com/sdispater/pastel
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/a/attrs/${pkg_dirname}.tar.gz
-pkg_shasum=80203177723e36f3bbe15aa8553da6e80d47bfe53647220ccaa9ad7a5e473ccc
+pkg_source=https://pypi.org/packages/source/p/pastel/${pkg_dirname}.tar.gz
+pkg_shasum=3108af417ec0fa6d0a620e676ec4f02c839ca13e10611586e5d2174b46aa0bc3
 pkg_deps=(
   python2/python
 )
 pkg_build_deps=(
-  python2/hypothesis
-  python2/pytest
+#  python2/pytest
   python2/setuptools
 )
 pkg_env_sep=(
@@ -25,11 +24,9 @@ do_build() {
   python setup.py build
 }
 
+# Tests not included in source release
 #do_check() {
-#  export PYTHONPATH="$PWD/build/lib:$PYTHONPATH"
 #  pytest
-#  # Remove bytecode files
-#  find . -type f -name '*.py[co]' -delete
 #}
 
 do_install() {

@@ -1,0 +1,13 @@
+--- setup.py
++++ setup.py
+@@ -42,9 +42,7 @@
+     long_description = f.read()
+
+ # read dev requirements
+-fname = os.path.join(os.path.dirname(__file__), 'requirements_test.txt')
+-with open(fname) as f:
+-    tests_require = [l.strip() for l in f.readlines()]
++tests_require = ['pytest', 'pytest-cov']
+
+ if sys.version_info[:2] < (3, 3):
+     tests_require.append('mock')
