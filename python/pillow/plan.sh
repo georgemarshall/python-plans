@@ -10,6 +10,7 @@ pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://pypi.org/packages/source/p/pillow/${pkg_dirname}.tar.gz
 pkg_shasum=00b6a5f28d00f720235a937ebc2f50f4292a5c7e2d6ab9a8b26153b625c4f431
 pkg_deps=(
+  python/python
   core/freetype
   core/lcms2
   core/libjpeg-turbo
@@ -17,7 +18,7 @@ pkg_deps=(
   core/libwebp
   core/openjpeg
   core/zlib
-  python/python
+  python/olefile
   python/setuptools
 )
 pkg_build_deps=(
@@ -33,9 +34,9 @@ do_build() {
   python setup.py build
 }
 
-#do_check() {
-#  python setup.py test
-#}
+do_check() {
+  python setup.py test
+}
 
 do_install() {
   add_path_env 'PYTHONPATH' "$PYTHON_SITE_PACKAGES"
