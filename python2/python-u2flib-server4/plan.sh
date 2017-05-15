@@ -1,4 +1,4 @@
-pkg_name=python-u2flib-server40
+pkg_name=python-u2flib-server4
 pkg_distname=python-u2flib-server
 pkg_version=4.0.1
 pkg_origin=python2

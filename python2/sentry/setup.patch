@@ -1,6 +1,6 @@
 --- setup.py
 +++ setup.py
-@@ -89,63 +89,61 @@ tests_require = [
+@@ -89,59 +89,57 @@ tests_require = [
 
  install_requires = [
      'boto3>=1.4.1,<1.5',
@@ -91,6 +91,3 @@
      'uwsgi>2.0.0,<2.1.0',
      'rb>=1.6.0,<2.0.0',
      'qrcode>=5.2.2,<6.0.0',
--    'python-u2flib-server>=4.0.1,<4.1.0',
-+    'python-u2flib-server>=4.0.1',
- ]

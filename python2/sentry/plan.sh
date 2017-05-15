@@ -47,7 +47,7 @@ pkg_deps=(
   python2/python-dateutil
   python2/python-memcached
   python2/python-openid
-  python2/python-u2flib-server
+  python2/python-u2flib-server4
   python2/pyyaml
   python2/qrcode
   python2/raven
@@ -62,7 +62,7 @@ pkg_deps=(
   python2/south
   python2/statsd
   python2/structlog
-  python2/symsynd
+  python2/symsynd2
   python2/toronado
   python2/ua-parser
   python2/urllib3
