@@ -1,15 +1,14 @@
-pkg_name=django-jsonfield
-pkg_distname=${pkg_name}
-pkg_version=1.0.1
+pkg_name=djangorestframework2
+pkg_distname=djangorestframework
+pkg_version=2.4.8
 pkg_origin=python2
-pkg_license=('MIT')
+pkg_license=('BSD-2-Clause')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="A reusable Django field that allows you to store validated \
-JSON in your model."
-pkg_upstream_url=http://bitbucket.org/schinckel/django-jsonfield/
+pkg_description="Web APIs for Django, made easy."
+pkg_upstream_url=http://www.django-rest-framework.org/
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/d/django-jsonfield/${pkg_dirname}.tar.gz
-pkg_shasum=6c0afd5554739365b55d86e285cf966cc3a45682fff963463364ea1f6511ca3e
+pkg_source=https://pypi.org/packages/source/d/djangorestframework/${pkg_dirname}.tar.gz
+pkg_shasum=640b705ae7815ec60501631b7b611085e51c7f76607d90558bfe288f3f84b7aa
 pkg_deps=(
   python2/python
 )

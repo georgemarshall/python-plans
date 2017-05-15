@@ -14,15 +14,15 @@ pkg_deps=(
   python2/boto3
   python2/celery3
   python2/click
-  python2/cssutils09
+  python2/cssutils
   python2/django16
-  python2/django-crispy-forms
-  python2/django-debug-toolbar
-  python2/django-jsonfield
+  python2/django-crispy-forms15
+  python2/django-debug-toolbar13
+  python2/django-jsonfield0
   python2/django-picklefield
   python2/django-sudo
   python2/django-templatetag-sugar
-  python2/djangorestframework
+  python2/djangorestframework2
   python2/email-reply-parser
   python2/enum34
   python2/exam
@@ -34,7 +34,7 @@ pkg_deps=(
   python2/loremipsum
   python2/lxml
   python2/mmh3
-  python2/mock10
+  python2/mock
   python2/oauth2
   python2/percy
   python2/petname
@@ -47,10 +47,10 @@ pkg_deps=(
   python2/python-dateutil
   python2/python-memcached
   python2/python-openid
-  python2/python-u2flib-server40
+  python2/python-u2flib-server
   python2/pyyaml
   python2/qrcode
-  python2/raven5
+  python2/raven
   python2/rb
   python2/redis
   python2/requests
@@ -60,25 +60,25 @@ pkg_deps=(
   python2/simplejson
   python2/six
   python2/south
-  python2/statsd31
-  python2/structlog16
+  python2/statsd
+  python2/structlog
   python2/symsynd
   python2/toronado
   python2/ua-parser
-  python2/urllib3116
+  python2/urllib3
   python2/uwsgi
 )
-#pkg_build_deps=(
-#  core/patch
-#)
+pkg_build_deps=(
+  core/patch
+)
 pkg_env_sep=(
   ['PYTHONPATH']=':'
 )
 pkg_bin_dirs=(bin)
 
-#do_prepare() {
-#  patch -p0 -i "$PLAN_CONTEXT/setup.patch"
-#}
+do_prepare() {
+  patch -p0 -i "$PLAN_CONTEXT/setup.patch"
+}
 
 do_build() {
   python setup.py build

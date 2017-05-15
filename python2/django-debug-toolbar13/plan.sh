@@ -1,6 +1,6 @@
-pkg_name=django-debug-toolbar
-pkg_distname=${pkg_name}
-pkg_version=1.8
+pkg_name=django-debug-toolbar13
+pkg_distname=django-debug-toolbar
+pkg_version=1.3.2
 pkg_license=('BSD-3-Clause')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
 pkg_description="A configurable set of panels that display various debug \
@@ -8,7 +8,7 @@ information about the current request/response."
 pkg_upstream_url=https://github.com/jazzband/django-debug-toolbar
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://pypi.org/packages/source/d/django-debug-toolbar/${pkg_dirname}.tar.gz
-pkg_shasum=e9f08b94f9423ac76cfc287151182bbaddbe7521ae32bef9f9863e2ac58018d3
+pkg_shasum=6c1353b68a158642e14860f7278b81755e87bbda89e353673862c9079475d103
 pkg_deps=(
   python2/python
   python2/sqlparse

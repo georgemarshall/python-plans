@@ -1,15 +1,14 @@
-pkg_name=django-jsonfield
-pkg_distname=${pkg_name}
-pkg_version=1.0.1
+pkg_name=django-crispy-forms15
+pkg_distname=django-crispy-forms
+pkg_version=1.5.2
 pkg_origin=python2
 pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
-pkg_description="A reusable Django field that allows you to store validated \
-JSON in your model."
-pkg_upstream_url=http://bitbucket.org/schinckel/django-jsonfield/
+pkg_description="Best way to have Django DRY forms"
+pkg_upstream_url=http://github.com/maraujop/django-crispy-forms
 pkg_dirname=${pkg_distname}-${pkg_version}
-pkg_source=https://pypi.org/packages/source/d/django-jsonfield/${pkg_dirname}.tar.gz
-pkg_shasum=6c0afd5554739365b55d86e285cf966cc3a45682fff963463364ea1f6511ca3e
+pkg_source=https://pypi.org/packages/source/d/django-crispy-forms/${pkg_dirname}.tar.gz
+pkg_shasum=47ef7f74003b2a07a78ce6ed70b6472bf30efd7f8c3ef15fe0ca6685be2e0dfb
 pkg_deps=(
   python2/python
 )
