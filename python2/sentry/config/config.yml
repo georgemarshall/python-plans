@@ -1,0 +1,15 @@
+{{#each cfg.mail as |k v|}}
+mail.{{k}}: {{json v}}
+{{/each}}
+{{#each cfg.system as |k v|}}
+system.{{k}}: {{json v}}
+{{/each}}
+redis.clusters:
+  default:
+    hosts:
+    {{#each cfg.redis.default.hosts as |idx host|}}
+      {{idx}}: {{json host}}
+    {{/each}}
+{{#each cfg.filestore as |k v|}}
+filestore.{{k}}: {{json v}}
+{{/each}}

@@ -5,7 +5,7 @@ pkg_origin=python2
 pkg_license=('BSD-3-Clause')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
 pkg_description="A realtime logging and aggregation server."
-pkg_upstream_url=http://github.com/getsentry/symsynd
+pkg_upstream_url=https://sentry.io/
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://pypi.org/packages/source/s/sentry/${pkg_dirname}.tar.gz
 pkg_shasum=83e7248889f76473662b55e7b55d667eb9e0e5baf00ea0ebc197bbeb24767676
@@ -29,7 +29,7 @@ pkg_deps=(
   python2/hiredis
   python2/honcho
   python2/ipaddress
-  python2/kombu
+  python2/kombu3
   python2/libsourcemap
   python2/loremipsum
   python2/lxml
@@ -70,6 +70,10 @@ pkg_deps=(
 )
 pkg_build_deps=(
   core/patch
+)
+pkg_binds=(
+  [database]="port"
+  [datastore]="port"
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
