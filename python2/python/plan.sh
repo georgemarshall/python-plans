@@ -61,11 +61,6 @@ do_check() {
 do_strip() {
   do_default_strip
 
-  # Remove tests and bytecode files
-  find "$pkg_prefix" -depth \
-    \( \
-      \( -type d -a -name test -o -name tests \) \
-      -o \
-      \( -type f -a -name '*.pyc' -o -name '*.pyo' \) \
-    \) -exec rm -rf '{}' +
+  # Remove bytecode files
+  find . -type f -name '*.py[co]' -delete
 }
