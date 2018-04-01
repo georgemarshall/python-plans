@@ -1,7 +1,7 @@
 pkg_name=cffi
 pkg_distname=${pkg_name}
 pkg_version=1.10.0
-pkg_origin=python2
+pkg_origin="${HAB_ORIGIN:-python2}"
 pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
 pkg_description="Foreign Function Interface for Python calling C code."
@@ -12,18 +12,20 @@ pkg_shasum=b3b02911eb1f6ada203b0763ba924234629b51586f72a21faacc638269f4ced5
 pkg_deps=(
   core/gcc-libs
   core/libffi
-  python2/python
-  python2/pycparser
+  $pkg_origin/python
+  $pkg_origin/pycparser
 )
 pkg_build_deps=(
   core/gcc
-#  python2/py
-#  python2/pytest
-  python2/setuptools
+  $pkg_origin/setuptools
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
 )
+do_setup_environment() {
+   push_buildtime_env PYTHONPATH "${pkg_prefix}/lib/python2.7/site-packages"
+   push_runtime_env PYTHONPATH "${pkg_prefix}/lib/python2.7/site-packages"
+}
 
 do_build() {
   python setup.py build_ext --inplace --force
@@ -37,7 +39,6 @@ do_check() {
 }
 
 do_install() {
-  add_path_env 'PYTHONPATH' "$PYTHON_SITE_PACKAGES"
   python setup.py install \
     --prefix="$pkg_prefix" \
     --no-compile \
