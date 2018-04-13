@@ -1,22 +1,26 @@
 pkg_name=pip
 pkg_distname=${pkg_name}
-pkg_version=9.0.1
-pkg_origin=python2
+pkg_version=9.0.3
+pkg_origin="${HAB_ORIGIN:-python2}"
 pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
 pkg_description="The PyPA recommended tool for installing Python packages."
 pkg_upstream_url=https://pip.pypa.io/
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://pypi.org/packages/source/p/pip/${pkg_dirname}.tar.gz
-pkg_shasum=09f243e1a7b461f654c26a725fa373211bb7ff17a9300058b205c61658ca940d
+pkg_shasum=7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796
 pkg_deps=(
-  python2/python
-  python2/setuptools
-  python2/wheel
+  $pkg_origin/python
+  $pkg_origin/setuptools
+  $pkg_origin/wheel
 )
 pkg_env_sep=(
   ['PYTHONPATH']=':'
 )
+do_setup_environment() {
+   push_buildtime_env PYTHONPATH "${pkg_prefix}/lib/python2.7/site-packages"
+   push_runtime_env PYTHONPATH "${pkg_prefix}/lib/python2.7/site-packages"
+}
 pkg_bin_dirs=(bin)
 
 do_build() {
@@ -24,14 +28,8 @@ do_build() {
 }
 
 do_install() {
-  add_path_env 'PYTHONPATH' "$PYTHON_SITE_PACKAGES"
   python setup.py install \
     --prefix="$pkg_prefix" \
     --no-compile \
     --old-and-unmanageable # bypass egg install
-
-  cat <<EOF > "$pkg_prefix/$PYTHON_SITE_PACKAGES/_manylinux.py"
-# Disable binary manylinux1(CentOS 5) wheel support
-manylinux1_compatible = False
-EOF
 }
