@@ -1,6 +1,6 @@
 pkg_name=pip
 pkg_distname=${pkg_name}
-pkg_version=9.0.3
+pkg_version=10.0.1
 pkg_origin="${HAB_ORIGIN:-python2}"
 pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
@@ -8,7 +8,7 @@ pkg_description="The PyPA recommended tool for installing Python packages."
 pkg_upstream_url=https://pip.pypa.io/
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://pypi.org/packages/source/p/pip/${pkg_dirname}.tar.gz
-pkg_shasum=7bf48f9a693be1d58f49f7af7e0ae9fe29fd671cde8a55e6edca3581c4ef5796
+pkg_shasum=f2bd08e0cd1b06e10218feaf6fef299f473ba706582eb3bd9d52203fdbd7ee68
 pkg_deps=(
   $pkg_origin/python
   $pkg_origin/setuptools

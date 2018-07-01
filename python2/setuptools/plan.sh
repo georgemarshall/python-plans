@@ -1,6 +1,6 @@
 pkg_name=setuptools
 pkg_distname=${pkg_name}
-pkg_version=39.0.1
+pkg_version=39.2.0
 pkg_origin="${HAB_ORIGIN:-python2}"
 pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
@@ -9,7 +9,7 @@ Python packages"
 pkg_upstream_url=https://github.com/pypa/setuptools
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://pypi.org/packages/source/s/setuptools/${pkg_dirname}.zip
-pkg_shasum=bec7badf0f60e7fc8153fac47836edc41b74e5d541d7692e614e635720d6a7c7
+pkg_shasum=f7cddbb5f5c640311eb00eab6e849f7701fa70bf6a183fc8a2c33dd1d1672fb2
 pkg_deps=(
   $pkg_origin/python
   $pkg_origin/appdirs

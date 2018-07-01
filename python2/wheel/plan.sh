@@ -1,6 +1,6 @@
 pkg_name=wheel
 pkg_distname=${pkg_name}
-pkg_version=0.30.0
+pkg_version=0.31.1
 pkg_origin="${HAB_ORIGIN:-python2}"
 pkg_license=('MIT')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
@@ -8,7 +8,7 @@ pkg_description="A built-package format for Python."
 pkg_upstream_url=https://bitbucket.org/pypa/wheel/
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://pypi.org/packages/source/w/wheel/${pkg_dirname}.tar.gz
-pkg_shasum=9515fe0a94e823fd90b08d22de45d7bde57c90edce705b22f5e1ecf7e1b653c8
+pkg_shasum=0a2e54558a0628f2145d2fc822137e322412115173e8a2ddbe1c9024338ae83c
 pkg_deps=(
   $pkg_origin/python
   $pkg_origin/setuptools
