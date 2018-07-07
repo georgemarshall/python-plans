@@ -1,7 +1,7 @@
 pkg_name=pillow
 pkg_distname=Pillow
 pkg_version=4.1.1
-pkg_origin=python
+pkg_origin="${HAB_ORIGIN:-python}"
 pkg_license=('Standard PIL License')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
 pkg_description="Python Imaging Library (Fork)"
@@ -10,7 +10,6 @@ pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://pypi.org/packages/source/p/pillow/${pkg_dirname}.tar.gz
 pkg_shasum=00b6a5f28d00f720235a937ebc2f50f4292a5c7e2d6ab9a8b26153b625c4f431
 pkg_deps=(
-  python/python
   core/freetype
   core/lcms2
   core/libjpeg-turbo
@@ -18,16 +17,17 @@ pkg_deps=(
   core/libwebp
   core/openjpeg
   core/zlib
-  python/olefile
-  python/setuptools
+  $pkg_origin/python
+  $pkg_origin/olefile
+  $pkg_origin/setuptools
 )
 pkg_build_deps=(
   core/gcc
-  python/nose
+  $pkg_origin/nose
 )
-pkg_env_sep=(
-  ['PYTHONPATH']=':'
-)
+do_setup_environment() {
+   push_runtime_env PYTHONPATH "${pkg_prefix}/lib/python2.7/site-packages"
+}
 pkg_bin_dirs=(bin)
 
 do_build() {
@@ -39,7 +39,6 @@ do_check() {
 }
 
 do_install() {
-  add_path_env 'PYTHONPATH' "$PYTHON_SITE_PACKAGES"
   python setup.py install \
     --prefix="$pkg_prefix" \
     --no-compile \

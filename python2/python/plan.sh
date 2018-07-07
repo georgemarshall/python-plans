@@ -49,7 +49,7 @@ do_build() {
     --enable-shared \
     --enable-unicode=ucs4 \
     --without-ensurepip
-  make
+  make --jobs="$(nproc)"
 }
 
 do_check() {
