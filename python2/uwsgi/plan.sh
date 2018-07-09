@@ -1,5 +1,5 @@
 pkg_name=uwsgi
-source ../python/${pkg_name}/plan.sh
+source ../../python/${pkg_name}/plan.sh
 source ../python-plan-base.sh
 pkg_deps=(
   core/pcre
