@@ -1,7 +1,7 @@
 # add "source ../python-plan-base.sh" below the pkg_name and pkg_version lines, but above everything else
 pkg_distname=${pkg_name}
 pkg_dirname=${pkg_distname}-${pkg_version}
-python_version=3.6
+python_version=3.7
 pkg_env_sep=(
   ['PYTHONPATH']=':'
 )
