@@ -1,6 +1,7 @@
 pkg_name=python
 pkg_distname=Python
-pkg_version=3.7.1
+pkg_version=3.6.7
+#pkg_version=3.7.1
 pkg_origin="${HAB_ORIGIN:-python}"
 pkg_license=('Python-2.0')
 pkg_maintainer="George Marshall <george@georgemarshall.name>"
@@ -9,7 +10,8 @@ and integrate systems more effectively."
 pkg_upstream_url=https://www.python.org/
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://www.python.org/ftp/python/${pkg_version}/${pkg_dirname}.tgz
-pkg_shasum=36c1b81ac29d0f8341f727ef40864d99d8206897be96be73dc34d4739c9c9f06
+pkg_shasum=b7c36f7ed8f7143b2c46153b7332db2227669f583ea0cce753facf549d1a4239
+#pkg_shasum=36c1b81ac29d0f8341f727ef40864d99d8206897be96be73dc34d4739c9c9f06
 pkg_deps=(
   core/bzip2
   core/expat
@@ -35,7 +37,7 @@ pkg_build_deps=(
 pkg_lib_dirs=(lib)
 pkg_bin_dirs=(bin)
 pkg_include_dirs=(include)
-pkg_interpreters=(bin/python bin/python3 bin/python3.7)
+pkg_interpreters=(bin/python bin/python3 bin/python3.6)
 do_setup_environment() {
    set_buildtime_env PYTHON_SITE_PACKAGES "lib/python${pkg_version%.*}/site-packages"
 }
@@ -54,7 +56,7 @@ do_build() {
               --with-system-expat \
               --with-system-ffi \
               --without-ensurepip
-              # --enable-optimizations # NOTE: this adds about 30 minutes to the build time
+              #--enable-optimizations # NOTE: this adds about 30 minutes to the build time
 
   make --jobs="$(nproc)"
 }
