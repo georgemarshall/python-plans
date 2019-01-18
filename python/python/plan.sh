@@ -1,6 +1,6 @@
 pkg_name=python
 pkg_distname=Python
-pkg_version=3.6.7
+pkg_version=3.6.8
 #pkg_version=3.7.1
 pkg_origin="${HAB_ORIGIN:-python}"
 pkg_license=('Python-2.0')
@@ -10,7 +10,7 @@ and integrate systems more effectively."
 pkg_upstream_url=https://www.python.org/
 pkg_dirname=${pkg_distname}-${pkg_version}
 pkg_source=https://www.python.org/ftp/python/${pkg_version}/${pkg_dirname}.tgz
-pkg_shasum=b7c36f7ed8f7143b2c46153b7332db2227669f583ea0cce753facf549d1a4239
+pkg_shasum=7f5b1f08b3b0a595387ef6c64c85b1b13b38abef0dd871835ee923262e4f32f0
 #pkg_shasum=36c1b81ac29d0f8341f727ef40864d99d8206897be96be73dc34d4739c9c9f06
 pkg_deps=(
   core/bzip2
