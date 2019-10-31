@@ -1,5 +1,0 @@
-#!/bin/sh
-export SENTRY_CONF={{pkg.svc_config_path}}
-
-exec 2>&1
-exec {{pkgPathFor "python2/sentry"}}/bin/sentry run web
